@@ -8,13 +8,12 @@ type SearchType = {
   allSearchResults : ProductType[]
 }
 
-export default function Nav({setAllSearchResults , allSearchResults} : SearchType) {
+export default function Nav({setAllSearchResults} : SearchType) {
   const [allProducts , setAllProducts] = useState([]);
   const [filteredProducts , setFilteredProducts] = useState([]);
   const [input , setInput] = useState("");
   const inputRef = useRef(null);
   const [outsideClick , setOutsideClick] = useState(false);
-  const [btn , setBtn] = useState(false);
   const fetchData = async () =>{
     try {
       const response = await fetch(
