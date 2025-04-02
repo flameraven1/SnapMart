@@ -61,15 +61,15 @@ const router = createBrowserRouter([
         children  : [
           {
             path : "ProductDetails",
-            element : <Tabs data={data} />
+            element : <Tabs />
           },
           {
             path : "Shipping&Availability",
-            element : <Tabs2 data={data} />
+            element : <Tabs2 />
           },
           {
             path : "ShippingInformation",
-            element : <Tabs3 data={data} />
+            element : <Tabs3 />
           },
         ]
       },

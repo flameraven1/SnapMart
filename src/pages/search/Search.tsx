@@ -9,7 +9,7 @@ type OutletType = {
 
 export default function Search() {
 
-  const { allSearchResults, setAllSearchResults} = useOutletContext<OutletType>()
+  const { allSearchResults} = useOutletContext<OutletType>()
 
     console.log("all the results will be shown here >>>> " , allSearchResults)
   return (

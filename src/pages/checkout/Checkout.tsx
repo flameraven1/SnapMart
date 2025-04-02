@@ -1,16 +1,10 @@
-import { useOutletContext } from "react-router-dom";
 import { ProductType } from "../specific-product/Specific";
 import { Link } from "react-router-dom";
-
-type ContextType = {
-    itemQuantities : number[],
-  }
 
 export default function Checkout() {
     const cartProducts: ProductType[] = JSON.parse(
         localStorage.getItem("cartProducts") || "[]"
       );
-      const {itemQuantities} = useOutletContext<ContextType>();
       const getQuantities = JSON.parse(localStorage.getItem("quantities") || "[]")
 
       const getTotal = JSON.parse(localStorage.getItem("total") || "[]")

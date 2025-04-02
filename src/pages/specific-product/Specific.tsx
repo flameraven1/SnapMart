@@ -6,6 +6,7 @@ import Tabs3 from "./tabs/Tabs3";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { addProduct } from "../../redux/features/products/productSlice";
+import { Outlet } from "react-router-dom";
 
 export type ProductType = {
   thumbnail: string;
@@ -254,11 +255,11 @@ export default function Specific() {
       <hr className="text-gray-300 mt-6" />
 
       {tabs === 0 ? (
-        <Tabs data={data} />
+        <Tabs />
       ) : tabs === 1 ? (
-        <Tabs2 data={data} />
+        <Tabs2 />
       ) : (
-        <Tabs3 data={data} />
+        <Tabs3 />
       )}
 
       <hr className="text-gray-300 mt-12" />
@@ -302,6 +303,7 @@ export default function Specific() {
           ))}
         </div>
       </div>
+      <Outlet context={{data}}/>
     </div>
   );
 }
