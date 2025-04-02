@@ -1,0 +1,25 @@
+.track{
+    animation: scroll infinite linear 20s ;   
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-161%);
+    }
+
+}
+
+@media (max-width: 768px) {
+    @keyframes scroll {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-332%);
+        }
+    
+    }
+}
