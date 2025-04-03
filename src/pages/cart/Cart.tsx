@@ -59,6 +59,7 @@ export default function Cart() {
     localStorage.clear()
   }
 
+  console.log(getQuantities)
 
   return (
     <div className="min-h-screen bg-gray-100 p-3">
@@ -111,14 +112,14 @@ export default function Cart() {
                     <input onChange={(e)=>handleChange(index , Number(e.target.value))}
                       className="w-full p-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500"
                       type="number"
-                      defaultValue={getQuantities ? getQuantities[index] : 1}
+                      defaultValue={getQuantities.length === 0 ? 1 : getQuantities[index]}
                       min={1}
                     />
                   </div>
 
                   <div className="w-[20%] md:w-[15%] text-center">
                     <p className=" text-gray-700 font-semibold">
-                      ${(item.price * getQuantities[index]).toFixed(2)}
+                      ${(item.price * (getQuantities[index] || 1)).toFixed(2)}
                     </p>
                   </div>
                 </div>

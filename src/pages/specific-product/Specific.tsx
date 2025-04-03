@@ -1,4 +1,4 @@
-import { NavLink, useParams, Link } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Tabs from "./tabs/Tabs";
 import Tabs2 from "./tabs/Tabs2";
@@ -129,7 +129,6 @@ export default function Specific() {
     );
   return (
     <div className="w-full min-h-screen bg-white py-10 px-4">
-      <Link to="/cart">Cart</Link>
       {data && (
         <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-10 shadow-xl rounded-2xl p-6 border border-gray-100 bg-white">
           <div className="md:w-1/2 overflow-hidden">

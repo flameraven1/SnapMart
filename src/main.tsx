@@ -15,6 +15,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store.ts'
 import Checkout from './pages/checkout/Checkout.tsx'
 import Payment from './pages/payment/Payment.tsx'
+import ErrorPage from './components/Error.tsx'
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path : "*",
+    element : <ErrorPage />
+  }
 ])
 
 createRoot(document.getElementById('root')!).render(

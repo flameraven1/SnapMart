@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { ProductType } from "../pages/specific-product/Specific";
 import useOutsideClick from "./useOutsideClick";
 
-type SearchType = {
+type NavType = {
   setAllSearchResults : (allSearchResults : ProductType[])=>void,
-  allSearchResults : ProductType[]
+  allSearchResults : ProductType[],
+  isOpen : boolean,
+  setIsOpen : (isOpen : boolean)=>void
 }
 
-export default function Nav({setAllSearchResults} : SearchType) {
+export default function Nav({setAllSearchResults , isOpen , setIsOpen} : NavType) {
   const [allProducts , setAllProducts] = useState([]);
   const [filteredProducts , setFilteredProducts] = useState([]);
   const [input , setInput] = useState("");
@@ -45,7 +47,7 @@ export default function Nav({setAllSearchResults} : SearchType) {
   useOutsideClick(inputRef , ()=>setOutsideClick(false))
 
   return (
-    <div className="min-w-dvw h-[15vh] bg-gradient-to-r from-red-600 to-red-500 flex justify-between items-center px-8 md:px-8 shadow-xl">
+    <div className="min-w-dvw h-[15vh] bg-gradient-to-r from-red-500 via-orange-400 to-pink-500 flex justify-between items-center px-8 md:px-8 shadow-xl">
       <Link to={"/"} className="flex items-center gap-3 w-[30%]">
         <img
           className="rounded-full md:w-[50px] w-[50px] shadow-xl"
@@ -89,8 +91,14 @@ export default function Nav({setAllSearchResults} : SearchType) {
         <img src="/images/icons/search.png" alt="Search" className="w-5 h-5" />
       </Link>
 
-      <span className="text-white text-4xl font-bold hover:scale-110 transition-transform duration-200 cursor-pointer">
+
+      <span className="flex justify-center items-center gap-2 text-white text-4xl font-bold cursor-pointer">
+        <Link to={"/cart"}>
+      <i className="hover:scale-110 transition-transform duration-200 fa-solid fa-cart-shopping text-white text-lg cursor-pointer mb-1"></i>
+        </Link>
+        <span onClick={()=>setIsOpen(true)} className="hover:scale-110 transition-transform duration-200">
         ≡
+        </span>
       </span>
     </div>
   );

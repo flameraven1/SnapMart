@@ -138,6 +138,7 @@ export default function Body() {
         <div className="w-full flex justify-center items-center my-8">
           <Link to={""} className="w-[90%] md:w-[70%] lg:w-[70%] relative shadow-lg rounded-xl overflow-hidden hover:scale-[1.01] transition-all duration-300 ease-in-out">
             <img
+            loading="lazy"
               src="/images/sales/Gray and Black Minimalist Fashion Style Banner.png"
               alt="Sale Banner"
               className="w-full h-auto object-cover"
@@ -156,6 +157,7 @@ export default function Body() {
               }}
             >
               <img
+              loading="lazy"
                 src={`/images/Curousel/${item.pic}.jpg`}
                 className="object-cover min-w-full min-h-full relative"
                 alt=""
@@ -188,6 +190,7 @@ export default function Body() {
                 key={item.id * Math.random()}
               >
                 <img
+                loading="lazy"
                   src={`/images/infinite/${item.title}.jpg`}
                   className="object-cover min-w-full min-h-full"
                   alt=""
@@ -245,7 +248,7 @@ export default function Body() {
 
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 w-full md:w-[65%]">
       {storeProducts.map((item: ProductType) => (
-        <div
+        <Link to={`/products/${item.id}`}
           key={item.id}
           className="relative bg-white rounded-lg shadow-md p-3 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
         >
@@ -264,7 +267,7 @@ export default function Body() {
           <p className="text-sm text-gray-500">{item.brand}</p>
           <p className="text-base font-semibold">{item.title}</p>
           <p className="text-lg font-bold text-green-600">${item.price}</p>
-        </div>
+        </Link>
       ))}
     </div>
   </div>
