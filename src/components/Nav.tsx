@@ -10,7 +10,7 @@ type NavType = {
   setIsOpen : (isOpen : boolean)=>void
 }
 
-export default function Nav({setAllSearchResults , isOpen , setIsOpen} : NavType) {
+export default function Nav({setAllSearchResults , setIsOpen} : NavType) {
   const [allProducts , setAllProducts] = useState([]);
   const [filteredProducts , setFilteredProducts] = useState([]);
   const [input , setInput] = useState("");
